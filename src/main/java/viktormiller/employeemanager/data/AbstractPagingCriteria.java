@@ -60,6 +60,8 @@ public abstract class AbstractPagingCriteria {
 
     public Pageable getPagable() {
         return PageRequest.of(this.page - 1, this.perPage,
-                direction.equals("ASC") ? Sort.by(Sort.Direction.ASC, sort) : Sort.by(Sort.Direction.DESC, sort));
+                direction.equals("ASC")
+                        ? Sort.by(Sort.Direction.ASC, sort)
+                        : Sort.by(Sort.Direction.DESC, sort));
     }
 }
