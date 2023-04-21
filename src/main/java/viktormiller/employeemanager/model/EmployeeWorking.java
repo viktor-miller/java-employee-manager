@@ -1,5 +1,6 @@
 package viktormiller.employeemanager.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,8 +19,9 @@ public class EmployeeWorking implements Serializable {
     @Column(nullable = false, updatable = false)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="employee_id")
+    @JsonIgnore
     private Employee employee;
 
     @Temporal(TemporalType.TIMESTAMP)
