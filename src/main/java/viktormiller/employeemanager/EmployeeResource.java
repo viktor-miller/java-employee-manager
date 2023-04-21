@@ -9,7 +9,7 @@ import viktormiller.employeemanager.model.Employee;
 import viktormiller.employeemanager.service.EmployeeService;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+@CrossOrigin
 @RestController
 @RequestMapping("/employee")
 @Validated
