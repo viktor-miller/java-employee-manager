@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,8 +26,8 @@ public class Employee implements Serializable {
     @Column(nullable = false, updatable = false)
     private String employeeCode;
 
-    @OneToMany(mappedBy = "employee")
-    private List<EmployeeWorking> workings;
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<EmployeeWorking> workings = new ArrayList<>();
 
     public Employee() {}
 }
